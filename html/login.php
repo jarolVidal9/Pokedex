@@ -4,7 +4,7 @@
         unset($message); 
         // Inicia la sesión o reanuda la sesión existente
         session_start();
-        // Verifica si el usuario ya está autenticado y redirige a una página de bienvenida
+        // Verifica si el usuario ya está logeado y redirige a una página de bienvenida
         if (isset($_SESSION['username'])) {
             header('Location: ../index.php');
             exit;
@@ -28,15 +28,17 @@
             if (password_verify($password, $stored_password)) {
                 // Inicia sesión para el usuario autenticado
                 $_SESSION['username'] = $username;
+                //retorna a la pagina donde se muestran los pokemones
                 header('Location: ../index.php');
                 exit;
             } else {
+                //retorna el error 2 que Contraseña incorrecta
                 header('Location: login.php?error=2');
             }
             } else {
+                //Retorna el  error 1 que es usuario no encontrado
                 header('Location: login.php?error=1');
             }
-            // Cierra la conexión a la base de datos
             $conn->close();
         }
     ?>

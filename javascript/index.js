@@ -76,18 +76,18 @@ const url = 'https://pokeapi.co/api/v2/pokemon/?limit=100';
 					Peso.textContent = `Peso: ${data.weight}`;
 
 					const abilities = data.abilities.map(ability => ability.ability.name).join(', ');
-					const abilitiesParagraph = document.createElement('p');
+					const habilidadesCompletas = document.createElement('p');
 
 					const types = data.types.map(type => type.type.name).join(', ');
-					const typesParagraph = document.createElement('p');
-					typesParagraph.textContent = `Tipo: ${types}`;
+					const TiposCompletos = document.createElement('p');
+					TiposCompletos.textContent = `Tipo: ${types}`;
 
-					abilitiesParagraph.textContent = `Habilidades: ${abilities}`;
+					habilidadesCompletas.textContent = `Habilidades: ${abilities}`;
 					
 					information.appendChild(Estatura);
 					information.appendChild(Peso);
-					information.appendChild(abilitiesParagraph);
-					information.appendChild(typesParagraph);
+					information.appendChild(habilidadesCompletas);
+					information.appendChild(TiposCompletos);
 					container.appendChild(containerImage);
 					container.appendChild(information);
 
